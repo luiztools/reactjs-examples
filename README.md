@@ -4,6 +4,9 @@ Some examples of ReactJS apps and studies.
 ## react-intro
 Série de tutoriais para iniciantes em: https://www.luiztools.com.br/post/tutorial-de-react-js-com-node-js/
 
+## webapi-exemplo
+Exemplo de web api usada na série de tutoriais de React acima.
+
 ## react-list-search
 Componente de busca em lista de exemplo, ensinado neste tutorial: https://www.luiztools.com.br/post/tutorial-listagem-com-busca-em-reactjs/
 
