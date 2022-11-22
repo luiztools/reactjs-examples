@@ -1,25 +1,30 @@
 # reactjs-examples
-Some examples of ReactJS apps and studies.
+Some examples of ReactJS apps and studies. Use the readmes to more info.
+
+## react-captcha
+Google reCaptcha V2 example in React.
+
+## react-heroku
+Deploy example setup for Heroku.
 
 ## react-intro
-Série de tutoriais para iniciantes em: https://www.luiztools.com.br/post/tutorial-de-react-js-com-node-js/
+Beginners tutorials.
 
 ## webapi-exemplo
 Exemplo de web api usada na série de tutoriais de React acima.
 
 ## react-list-search
-Para o tutorial de construção do projeto, visite https://www.luiztools.com.br/post/tutorial-listagem-com-busca-em-reactjs/
-
-Para o tutorial de Storybook, visite https://www.luiztools.com.br/post/tutorial-de-react-storybook/
-
-Para o tutorial de testes de front, visite https://www.luiztools.com.br/post/testes-de-front-react-com-storybook-jest-e-chromatic/
-
-## react-heroku
-Exemplo de aplicação do tutorial de deploy na Heroku: https://www.luiztools.com.br/post/como-publicar-aplicacao-reactjs-na-heroku/
+React listing with search box.
 
 ## react-login
-Em breve.
+Soon. Em breve.
 
-Conheça meu curso de Web FullStack JS em https://www.luiztools.com.br/curso-fullstack
+## Mais
+
+Conheça meus cursos em https://www.luiztools.com.br/meus-cursos
+
 Conheça meus livros em https://www.luiztools.com.br/meus-livros
+
 Me siga nas redes sociais https://about.me/luiztools
+
+Receba novidades no Telegram https://t.me/luiznews

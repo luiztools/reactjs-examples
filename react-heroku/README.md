@@ -1,14 +1,25 @@
 # reactjs-heroku
 A simple ReactJS app with Webpack ready to publish at Heroku
 
-Run "npm i", "npm run dev" to test de development version at localhost:8080.
-
-Run "npm i", "npm run build" and "npm start" to test de production release as localhost:3000.
-
 Tutorial completo em: https://www.luiztools.com.br/post/como-publicar-aplicacao-reactjs-na-heroku/
 
-Curso completo de fullstack JS em: https://www.luiztools.com.br/curso-fullstack
+## How to Test
+1. git clone
+2. cd react-heroku
+3. npm install
+4. npm run dev
+5. Access http://localhost:8080
 
-Livro completo de Node.js em: https://www.luiztools.com.br/livro-node-mysql
+## How to Build
+1. npm run build
+2. npme start
 
-Me siga nas redes sociais: https://about.me/luiztools
+## Referências
+
+Conheça meus cursos em https://www.luiztools.com.br/meus-cursos
+
+Conheça meus livros em https://www.luiztools.com.br/meus-livros
+
+Me siga nas redes sociais https://about.me/luiztools
+
+Receba novidades no Telegram https://t.me/luiznews

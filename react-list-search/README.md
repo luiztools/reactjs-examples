@@ -7,8 +7,18 @@ Para o tutorial de Storybook, visite https://www.luiztools.com.br/post/tutorial-
 
 Para o tutorial de testes de front, visite https://www.luiztools.com.br/post/testes-de-front-react-com-storybook-jest-e-chromatic/
 
-Conheça meus cursos: https://www.luiztools.com.br/meus-cursos
+## How to Run
+1. git clone
+2. cd react-list-search
+3. npm install
+4. npm start
 
-Conheça meus livros: https://www.luiztools.com.br/meus-livros
+## Referências
 
-Me siga nas redes sociais: https://about.me/luiztools
+Conheça meus cursos em https://www.luiztools.com.br/meus-cursos
+
+Conheça meus livros em https://www.luiztools.com.br/meus-livros
+
+Me siga nas redes sociais https://about.me/luiztools
+
+Receba novidades no Telegram https://t.me/luiznews

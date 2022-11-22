@@ -1,14 +1,15 @@
-# react-intro
+# react-captcha
+A simple Google reCaptcha V2 example in ReactJS.
 
-Beginner series of tutorials.
-
-Série de tutoriais para iniciantes em: https://www.luiztools.com.br/post/tutorial-de-react-js-com-node-js/
+Tutorial em breve.
 
 ## How to Run
-1. git clone
-2. cd react-intro
-3. npm install
-4. npm start
+1. create your reCaptcha key at http://www.google.com/recaptcha/admin
+2. git clone
+3. cd react-captcha
+4. npm install
+5. copy .env.example as .env and fill the configs
+6. npm start
 
 ## Referências
 
