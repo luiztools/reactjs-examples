@@ -4,13 +4,16 @@
   "description": "",
   "main": "api-estados.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "cadastro": "npx nodemon api-cadastro.js",
+    "estados": "npx nodemon api-estados.js",
+    "segura": "npx nodemon api-segura.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
     "express": "^4.17.1"
   }
 }

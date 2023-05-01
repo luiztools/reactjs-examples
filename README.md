@@ -7,6 +7,9 @@ Next.js beginner tutorial.
 ## nodemail
 A simple mailsender built with ReactJS, Node.js and Nodemailer.
 
+## react-axios
+Axios examples with React (functions, requests, auth and interceptors)
+
 ## react-captcha
 Google reCaptcha V2 example in React.
 

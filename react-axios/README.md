@@ -1,15 +1,17 @@
-# nextjs-tutorial
-A simple Next.js project.
+# react-axios
+Axios examples from basic to advanced (interceptors).
 
 ## How to Run
 1. git clone
-2. cd nextjs-tutorial
+2. cd react-axios
 3. npm install
-4. npm run dev
+4. copy .env.example as .env
+5. fill .env variables
+6. npm start
 
 ## Referências
 
-Tutorial completo (incluindo vídeo) em https://www.luiztools.com.br/post/tutorial-next-js-para-iniciantes/
+Tutorial completo (incluindo vídeo) em https://www.luiztools.com.br/post/tutorial-de-axios-interceptors
 
 Conheça meus cursos em https://www.luiztools.com.br/meus-cursos
 

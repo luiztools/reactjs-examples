@@ -1,5 +1,5 @@
 //api-cadastro.js
-var http = require('http'); 
+const http = require('http'); 
 const express = require('express');
 const app = express();
 
@@ -19,9 +19,9 @@ app.post('/cadastro', (req, res, next) => {
         idade: parseInt(req.body.txtIdade), 
         uf: req.body.cmbUF
     });
-    res.json({message: "Tudo ok por aqui!", dados: cadastros});
+    res.json({message: "Cadastro recebido!", dados: cadastros});
 }) 
 
-var server = http.createServer(app); 
-server.listen(3031);
-console.log("Servidor escutando na porta 3031...")
+const server = http.createServer(app); 
+server.listen(process.env.PORT || 3001);
+console.log(`Servidor escutando na porta ${process.env.PORT || 3001}...`)
