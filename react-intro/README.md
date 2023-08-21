@@ -2,7 +2,7 @@
 
 Beginner series of tutorials.
 
-Série de tutoriais para iniciantes em: https://www.luiztools.com.br/post/tutorial-de-react-js-com-node-js/
+Série de tutoriais para iniciantes em: https://www.luiztools.com.br/post/tutorial-de-react-js-para-iniciantes/
 
 ## How to Run
 1. git clone
