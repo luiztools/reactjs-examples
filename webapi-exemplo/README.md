@@ -1,14 +1,10 @@
 # webapi-exemplo
 
-Três exemplos de web apis para testes dos fronts React.
+Dois exemplos de web apis para testes dos fronts React.
 
 ## api-cadastro
 
 API de cadastro de clientes in-memory.
-
-## api-estados.js
-
-API que retorna estados (UF).
 
 ## api-segura.js
 
