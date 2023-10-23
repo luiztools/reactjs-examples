@@ -1,11 +1,11 @@
 "use client"
 
 import { useState, useEffect } from 'react';
-import { getData } from '../services/DataService';
+import { getData } from '@/services/DataService';;
+import Chart from './components/Chart';
 import useWebSocket from 'react-use-websocket';
-import Candle from '../lib/Candle';
-import Chart from './Chart';
-import Point from '@/lib/Point';
+import CandlePoint from '@/lib/CandlePoint';
+import LinePoint from '@/lib/LinePoint'
 
 function App() {
 
@@ -23,7 +23,7 @@ function App() {
     onOpen: () => console.log(`Connected to App WS`),
     onMessage: () => {
       if (lastJsonMessage) {
-        const newCandle = new Candle(lastJsonMessage.k.t, lastJsonMessage.k.o, lastJsonMessage.k.h, lastJsonMessage.k.l, lastJsonMessage.k.c);
+        const newCandle = new CandlePoint(lastJsonMessage.k.t, lastJsonMessage.k.o, lastJsonMessage.k.h, lastJsonMessage.k.l, lastJsonMessage.k.c);
         
         const newCandles = [...data.candles];
         const newSupport = [...data.support];
@@ -39,11 +39,11 @@ function App() {
 
           //atualiza suporte
           newSupport.splice(1, 1);
-          newSupport.push(new Point(newCandle.x, newSupport[0].y));
+          newSupport.push(new LinePoint(newCandle.x, newSupport[0].y));
 
           //atualiza resistencia
           newResistance.splice(1, 1);
-          newResistance.push(new Point(newCandle.x, newResistance[0].y));
+          newResistance.push(new LinePoint(newCandle.x, newResistance[0].y));
         }
 
         setData({ candles: newCandles, support: newSupport, resistance: newResistance });

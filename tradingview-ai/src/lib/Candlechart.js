@@ -1,28 +1,23 @@
-const Kline = require("./Kline");
-module.exports = class Candlechart {
+export default class CandleChart {
     constructor(arr, tickSize) {
-        this.klines = arr.map(k => new Kline(k));
+        this.candles = arr;
         this.TICK_SIZE = tickSize;
     }
 
     highestPrice() {
-        const orderedKlines = this.klines.sort((a, b) => a.high - b.high);
-        return orderedKlines[orderedKlines.length - 1].high;
+        const orderedKlines = this.candles.sort((a, b) => a.getHigh() - b.getHigh());
+        return orderedKlines[orderedKlines.length - 1].getHigh();
     }
 
     lowestPrice() {
-        const orderedKlines = this.klines.sort((a, b) => a.low - b.low);
-        return orderedKlines[0].low;
+        const orderedKlines = this.candles.sort((a, b) => a.getLow() - b.getLow());
+        return orderedKlines[0].getLow();
     }
 
-    getMedium(support, resistance) {
-        if (support === undefined)
-            support = this.lowestPrice();
-
-        if (resistance === undefined)
-            resistance = this.highestPrice();
-
-        return ((resistance - support) / 2) + support;
+    getMedium() {
+        let atl = this.lowestPrice();
+        let ath = this.highestPrice();
+        return ((ath - atl) / 2) + atl;
     }
 
     getTrendTick(grouped, total) {
@@ -30,18 +25,18 @@ module.exports = class Candlechart {
             return { tick: k, count: grouped[k] }
         });
         tickArr = tickArr.sort((a, b) => a.count - b.count);
-        return {...tickArr[tickArr.length - 1], total };
+        return { ...tickArr[tickArr.length - 1], total };
     }
 
-    getTicks(kline) {
-        const priceOsc = kline.high - kline.low;
+    getTicks(candle) {
+        const priceOsc = candle.getHigh() - candle.getLow();
         return priceOsc * (1 / this.TICK_SIZE);
     }
 
-    getGroupedTicks(grouped, kline) {
-        const ticks = this.getTicks(kline);
+    getGroupedTicks(grouped, candle) {
+        const ticks = this.getTicks(candle);
         for (let i = 0; i < ticks; i++) {
-            const tick = kline.low + (this.TICK_SIZE * i);
+            const tick = candle.getLow() + (this.TICK_SIZE * i);
             if (grouped[tick])
                 grouped[tick]++;
             else
@@ -50,18 +45,22 @@ module.exports = class Candlechart {
         return grouped;
     }
 
-    findSupport(medium) {
-        const candles = this.klines.filter(k => k.low < medium);
+    findSupport() {
+        const medium = this.getMedium();
+
+        const candles = this.candles.filter(candle => candle.getLow() < medium);
         let grouped = {};
-        candles.map(kline => grouped = this.getGroupedTicks(grouped, kline));
+        candles.map(candle => grouped = this.getGroupedTicks(grouped, candle));
 
         return this.getTrendTick(grouped, candles.length);
     }
 
-    findResistance(medium) {
-        const candles = this.klines.filter(k => k.high > medium);
+    findResistance() {
+        const medium = this.getMedium();
+
+        const candles = this.candles.filter(candle => candle.getHigh() > medium);
         let grouped = {};
-        candles.map(kline => grouped = this.getGroupedTicks(grouped, kline));
+        candles.map(candle => grouped = this.getGroupedTicks(grouped, candle));
 
         return this.getTrendTick(grouped, candles.length);
     }
