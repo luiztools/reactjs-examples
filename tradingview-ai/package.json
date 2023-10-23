@@ -1,0 +1,20 @@
+{
+  "name": "tradingview-ai",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "apexcharts": "^3.44.0",
+    "axios": "^1.5.1",
+    "next": "latest",
+    "react": "latest",
+    "react-apexcharts": "^1.4.1",
+    "react-dom": "latest",
+    "react-use-websocket": "^4.5.0"
+  }
+}

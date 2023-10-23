@@ -1,6 +1,9 @@
 # reactjs-examples
 Some examples of ReactJS apps and studies. Use the readmes to more info.
 
+## BSC Scan Clone
+BSC Scan website clone using BSC Scan APIs.
+
 ## nextjs-tutorial
 Next.js beginner tutorial.
 
@@ -24,6 +27,12 @@ React listing with search box.
 
 ## react-login
 Soon. Em breve.
+
+## TradingView Clone
+TradingView candle chart clone using Binance API & Stream.
+
+## TradingView Clone AI
+An evolution of the previous project drawing support and resistance lines automatically (AI-like) and Next.js.
 
 ## webapi-exemplo
 Exemplo de web api usada na série de tutoriais de React acima.
