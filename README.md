@@ -7,6 +7,9 @@ BSC Scan website clone using BSC Scan APIs.
 ## nextjs-tutorial
 Next.js beginner tutorial.
 
+## nextjs-tutorial-2
+Second Next.js tutorial.
+
 ## nodemail
 A simple mailsender built with ReactJS, Node.js and Nodemailer.
 
