@@ -4,9 +4,6 @@ Some examples of ReactJS apps and studies. Use the readmes to more info.
 ## BSC Scan Clone
 BSC Scan website clone using BSC Scan APIs.
 
-# cryptobubbles
-A Cryptobubbles-clone website to monitor crypto market.
-
 ## nextjs-dotenv
 Next.js environment variables tutorial.
 
