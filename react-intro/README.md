@@ -1,14 +1,15 @@
 # react-intro
 
-Beginner series of tutorials.
+Beginner series of tutorials with Vite.
 
-Série de tutoriais para iniciantes em: https://www.luiztools.com.br/post/tutorial-de-react-js-para-iniciantes/
+Série de tutoriais para iniciantes com Vite em: https://www.luiztools.com.br/post/tutorial-de-react-js-para-iniciantes/
 
 ## How to Run
 1. git clone
 2. cd react-intro
-3. npm install
-4. npm start
+3. choose one tutorial part
+4. npm install
+5. npm run dev
 
 ## Referências
 

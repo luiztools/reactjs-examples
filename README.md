@@ -26,7 +26,7 @@ Google reCaptcha V2 example in React.
 Deploy example setup for Heroku.
 
 ## react-intro
-Beginners tutorials.
+Beginners tutorials with Vite.
 
 ## react-list-search
 React listing with search box.
