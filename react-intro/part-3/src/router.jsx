@@ -7,7 +7,7 @@ function Router() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route element={<Home />} path="/" exact />
+                <Route element={<Home />} path="/" />
                 <Route element={<Form />} path="/cadastro" />
             </Routes>
         </BrowserRouter>
