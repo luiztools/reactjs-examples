@@ -19,5 +19,4 @@ app.get('/klines', async (req, res) => {
     }
 })
 
-app.listen(port);
-console.log('Server listening...');
+app.listen(port, () => console.log('Server listening...'));

@@ -16,10 +16,10 @@ function App() {
     onOpen: () => console.log(`Connected to App WS`),
     onMessage: (message) => {
       if (!message) return;
-      const data = JSON.parse(message.data);
-      const newCandle = new Candle(data.k.t, data.k.o, data.k.h, data.k.l, data.k.c);
+      const obj = JSON.parse(message.data);
+      const newCandle = new Candle(obj.k.t, obj.k.o, obj.k.h, obj.k.l, obj.k.c);
       const newData = [...data];
-      if (data.k.x === false) { //candle incompleto
+      if (obj.k.x === false) { //candle incompleto
         newData[newData.length - 1] = newCandle;//substitui último candle pela versão atualizada
       }
       else {//remove candle primeiro candle e adiciona o novo último
