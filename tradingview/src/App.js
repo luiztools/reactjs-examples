@@ -12,22 +12,22 @@ function App() {
 
   const [data, setData] = useState([]);
 
-  const { lastJsonMessage } = useWebSocket(`wss://stream.binance.com:9443/ws/${symbol.toLowerCase()}@kline_${interval}`, {
+  useWebSocket(`wss://stream.binance.com:9443/ws/${symbol.toLowerCase()}@kline_${interval}`, {
     onOpen: () => console.log(`Connected to App WS`),
-    onMessage: () => {
-      if (lastJsonMessage) {
-        const newCandle = new Candle(lastJsonMessage.k.t, lastJsonMessage.k.o, lastJsonMessage.k.h, lastJsonMessage.k.l, lastJsonMessage.k.c);
-        const newData = [...data];
-        if (lastJsonMessage.k.x === false) { //candle incompleto
-          newData[newData.length - 1] = newCandle;//substitui último candle pela versão atualizada
-        }
-        else {//remove candle primeiro candle e adiciona o novo último
-          newData.splice(0, 1);
-          newData.push(newCandle);
-        }
-
-        setData(newData);
+    onMessage: (message) => {
+      if (!message) return;
+      const data = JSON.parse(message.data);
+      const newCandle = new Candle(data.k.t, data.k.o, data.k.h, data.k.l, data.k.c);
+      const newData = [...data];
+      if (data.k.x === false) { //candle incompleto
+        newData[newData.length - 1] = newCandle;//substitui último candle pela versão atualizada
       }
+      else {//remove candle primeiro candle e adiciona o novo último
+        newData.splice(0, 1);
+        newData.push(newCandle);
+      }
+
+      setData(newData);
     },
     onError: (event) => console.error(event),
     shouldReconnect: (closeEvent) => true,

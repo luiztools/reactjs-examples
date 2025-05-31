@@ -19,35 +19,35 @@ function App() {
     resistance: []
   });
 
-  const { lastJsonMessage } = useWebSocket(`wss://stream.binance.com:9443/ws/${symbol.toLowerCase()}@kline_${interval}`, {
+  useWebSocket(`wss://stream.binance.com:9443/ws/${symbol.toLowerCase()}@kline_${interval}`, {
     onOpen: () => console.log(`Connected to App WS`),
-    onMessage: () => {
-      if (lastJsonMessage) {
-        const newCandle = new CandlePoint(lastJsonMessage.k.t, lastJsonMessage.k.o, lastJsonMessage.k.h, lastJsonMessage.k.l, lastJsonMessage.k.c);
-        
-        const newCandles = [...data.candles];
-        const newSupport = [...data.support];
-        const newResistance = [...data.resistance];
+    onMessage: (message) => {
+      if (!message) return;
+      const data = JSON.parse(message.data);
+      const newCandle = new CandlePoint(data.k.t, data.k.o, data.k.h, data.k.l, data.k.c);
 
-        if (lastJsonMessage.k.x === false) { //candle incompleto
-          newCandles[newCandles.length - 1] = newCandle;//substitui último candle pela versão atualizada
-        }
-        else {
-          //remove candle primeiro candle e adiciona o novo último
-          newCandles.splice(0, 1);
-          newCandles.push(newCandle);
+      const newCandles = [...data.candles];
+      const newSupport = [...data.support];
+      const newResistance = [...data.resistance];
 
-          //atualiza suporte
-          newSupport.splice(1, 1);
-          newSupport.push(new LinePoint(newCandle.x, newSupport[0].y));
-
-          //atualiza resistencia
-          newResistance.splice(1, 1);
-          newResistance.push(new LinePoint(newCandle.x, newResistance[0].y));
-        }
-
-        setData({ candles: newCandles, support: newSupport, resistance: newResistance });
+      if (data.k.x === false) { //candle incompleto
+        newCandles[newCandles.length - 1] = newCandle;//substitui último candle pela versão atualizada
       }
+      else {
+        //remove candle primeiro candle e adiciona o novo último
+        newCandles.splice(0, 1);
+        newCandles.push(newCandle);
+
+        //atualiza suporte
+        newSupport.splice(1, 1);
+        newSupport.push(new LinePoint(newCandle.x, newSupport[0].y));
+
+        //atualiza resistencia
+        newResistance.splice(1, 1);
+        newResistance.push(new LinePoint(newCandle.x, newResistance[0].y));
+      }
+
+      setData({ candles: newCandles, support: newSupport, resistance: newResistance });
     },
     onError: (event) => console.error(event),
     shouldReconnect: (closeEvent) => true,
