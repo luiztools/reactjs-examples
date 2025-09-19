@@ -1,10 +1,7 @@
 import { useState } from 'react';
-import logo from './logo.svg';
-import './App.css';
 import ReCAPTCHA from "react-google-recaptcha";
 
 function App() {
-
   const [captcha, setCaptcha] = useState("");
 
   function onClick() {
@@ -15,19 +12,20 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Test the captcha feature below
-        </p>
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100vh', width: 1200 }}>
+      <div style={{marginBottom: 10}}>
+        Test the captcha feature below
+      </div>
+      <div style={{marginBottom: 10}}>
         <button onClick={onClick}>Click Me</button>
+      </div>
+      <div>
         <ReCAPTCHA
-          sitekey={process.env.REACT_APP_SITE_KEY}
+          sitekey={import.meta.env.VITE_SITE_KEY}
           onChange={setCaptcha} />
-      </header>
+      </div>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
