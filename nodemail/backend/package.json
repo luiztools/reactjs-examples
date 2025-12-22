@@ -6,12 +6,15 @@
   "scripts": {
     "start": "node api"
   },
-  "author": "",
-  "license": "ISC",
+  "type": "module",
+  "keywords": [],
+  "author": "LuizTools",
+  "license": "MIT",
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.18.2",
-    "multer": "^1.4.5-lts.1",
-    "nodemailer": "^6.9.0"
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "multer": "^2.0.2",
+    "nodemailer": "^7.0.12"
   }
 }

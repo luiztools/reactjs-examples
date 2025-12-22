@@ -1,22 +1,28 @@
-const express = require('express');
+import "dotenv/config";
+import express from "express";
 const app = express();
-const upload = require("multer")();
 
-app.use(require("cors")());
+import cors from "cors";
+app.use(cors());
 app.use(express.json());
 
-app.get('/', (req, res, next) => {
-    res.json({message: "Tudo ok por aqui!"});
+app.get('/', (req, res) => {
+    res.json({ message: "Tudo ok por aqui!" });
 })
 
-app.post('/send', upload.single('anexo'), (req, res, next) => { 
-    const nome = req.body.nome;
-    const email = req.body.email;
-    const mensagem = req.body.mensagem;
-    const anexo = req.file;
-    require("./nodemail")(email, nome, mensagem, anexo)
-        .then(response => res.json(response))
-        .catch(error => res.json(error));
-}) 
+import sendMail from "./mail.js";
+import multer from "multer";
+const upload = multer();
 
-app.listen(3030, () => console.log("Servidor escutando na porta 3030..."));
+app.post('/send', upload.single('anexo'), async (req, res) => {
+    const { nome, email, mensagem, anexo } = req.body;
+
+    try {
+        const response = await sendMail(email, nome, mensagem, anexo)
+        res.json(response);
+    } catch (err) {
+        res.status(400).send(err);
+    }
+})
+
+app.listen(process.env.PORT || 3030, () => console.log("Servidor escutando na porta 3030..."));

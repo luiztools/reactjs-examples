@@ -1,18 +1,18 @@
-const mailer = require("nodemailer");
+import nodemailer from "nodemailer";
 
-module.exports = (email, nome, mensagem, anexo) => {
-    const smtpTransport = mailer.createTransport({
-        host: 'smtp.umbler.com',
-        port: 587,
-        secure: false, //SSL/TLS
+export default (email, nome, mensagem, anexo) => {
+    const smtpTransport = nodemailer.createTransport({
+        host: process.env.SMTP_HOST,
+        port: parseInt(process.env.SMTP_PORT),
+        secure: process.env.SMTP_SECURE === "true",
         auth: {
-            user: 'contato@luiztools.com.br',
-            pass: 'XXXXXX'
+            user: process.env.SMTP_USER,
+            pass: process.env.SMTP_PWD
         }
     })
     
     const mail = {
-        from: "Prof. Luiz <contato@luiztools.com.br>",
+        from: process.env.SMTP_USER,
         to: email,
         subject: `${nome} te enviou uma mensagem`,
         text: mensagem,
@@ -20,12 +20,10 @@ module.exports = (email, nome, mensagem, anexo) => {
     }
     
     if(anexo){
-        console.log(anexo);
-        mail.attachments = [];
-        mail.attachments.push({
+        mail.attachments = [{
             filename: anexo.originalname,
             content: anexo.buffer
-        })
+        }]
     }
     
     return new Promise((resolve, reject) => {

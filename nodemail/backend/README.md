@@ -5,6 +5,8 @@ A simple Node.js web API to send emails.
 
 1. cd backend
 2. npm install
-3. npm start
-4. running on localhost:3030
+3. copy .env.example as .env
+4. fill .env variables
+5. npm start
+6. run frontend
 
