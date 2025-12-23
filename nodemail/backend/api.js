@@ -15,10 +15,10 @@ import multer from "multer";
 const upload = multer();
 
 app.post('/send', upload.single('anexo'), async (req, res) => {
-    const { nome, email, mensagem, anexo } = req.body;
+    const { nome, email, mensagem } = req.body;
 
     try {
-        const response = await sendMail(email, nome, mensagem, anexo)
+        const response = await sendMail(email, nome, mensagem, req.file)
         res.json(response);
     } catch (err) {
         res.status(400).send(err);
